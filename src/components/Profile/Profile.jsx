@@ -1,6 +1,8 @@
+import P from "./Profile.module.css";
+
 const Profile = ({ username, tag, location, avatar, stats }) => {
   return (
-    <div>
+    <section className={P.profile}>
       <div>
         <img src={avatar} alt={username} />
         <p>{username}</p>
@@ -15,14 +17,15 @@ const Profile = ({ username, tag, location, avatar, stats }) => {
         </li>
         <li>
           <span>Views</span>
-          <span>{stats.views}</span>
+          <span>{stats.views}</span>  
+          
         </li>
         <li>
           <span>Likes</span>
           <span>{stats.likes}</span>
         </li>
       </ul>
-    </div>
+    </section>
   );
 };
 
