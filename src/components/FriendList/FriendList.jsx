@@ -1,4 +1,4 @@
-import clsx from "clsx";
+import FriendListItem from "../FriendListItem/FriendListItem";
 import F from "./FriendList.module.css";
 
 const FriendList = ({ friends }) => {
@@ -7,32 +7,17 @@ const FriendList = ({ friends }) => {
       <ul className={F.list}>
         {friends.map((friend) => {
           return (
-            <li key={friend.id} className={F.item}>
-              <img
-                className={F.avatar}
-                src={friend.avatar}
-                alt={friend.name}
-                width="48"
-              />
-              <p className={F.name}>{friend.name}</p>
-
-              <p
-                // className={clsx(
-                //   F.status,
-                //   friend.isOnline ? F.isOnline : F.isOffline
-                // )}
-                className={clsx(F.status, {
-                  [F.isOnline]: friend.isOnline === true,
-                  [F.isOffline]: friend.isOnline === false,
-                })}
-              >
-                {friend.isOnline ? "Online" : "Offline"}
-              </p>
-            </li>
+            <FriendListItem
+              key={friend.id}
+              avatar={friend.avatar}
+              name={friend.name}
+              isOnline={friend.isOnline}
+            />
           );
         })}
       </ul>
     </section>
   );
 };
+
 export default FriendList;
