@@ -8,10 +8,6 @@ const FriendListItem = ({ avatar, name, isOnline }) => {
       <p className={FI.name}>{name}</p>
 
       <p
-        // className={clsx(
-        //   FI.status,
-        //   friend.isOnline ? FI.isOnline : FI.isOffline
-        // )}
         className={clsx(FI.status, {
           [FI.isOnline]: isOnline === true,
           [FI.isOffline]: isOnline === false,
