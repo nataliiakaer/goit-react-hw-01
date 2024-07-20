@@ -1,38 +1,31 @@
+import T from "./TransactionHistory.module.css";
+
 const TransactionHistory = (props) => {
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>Type</th>
-          <th>Amount</th>
-          <th>Currency</th>
-        </tr>
-      </thead>
+    <section>
+      <table className={T.transactionHistory}>
+        <thead className={T.transactionHead}>
+          <tr className={T.transactionHeadRow}>
+            <th className={T.transactionHeader}>Type</th>
+            <th className={T.transactionHeader}>Amount</th>
+            <th className={T.transactionHeader}>Currency</th>
+          </tr>
+        </thead>
 
-      <tbody>
-        {props.items.map((item) => {
-          return (
-            <TransactionHistoryTR
-              key={item.id}
-              type={item.type}
-              amount={item.amount}
-              currency={item.currency}
-            />
-          );
-        })}
-      </tbody>
-    </table>
+        <tbody className={T.transactionHeadBody}>
+          {props.items.map((item) => {
+            return (
+              <tr key={item.id} className={T.transactionBodyRow}>
+                <td className={T.transactionData}>{item.type}</td>
+                <td className={T.transactionData}>{item.amount}</td>
+                <td className={T.transactionData}>{item.currency}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </section>
   );
 };
 
 export default TransactionHistory;
-
-const TransactionHistoryTR = ({ type, amount, currency }) => {
-  return (
-    <tr>
-      <td>{type}</td>
-      <td>{amount}</td>
-      <td>{currency}</td>
-    </tr>
-  );
-};
