@@ -17,10 +17,14 @@ const FriendList = ({ friends }) => {
               <p className={F.name}>{friend.name}</p>
 
               <p
-                className={clsx(
-                  F.status,
-                  friend.isOnline ? F.isOnline : F.isOffline
-                )}
+                // className={clsx(
+                //   F.status,
+                //   friend.isOnline ? F.isOnline : F.isOffline
+                // )}
+                className={clsx(F.status, {
+                  [F.isOnline]: friend.isOnline === true,
+                  [F.isOffline]: friend.isOnline === false,
+                })}
               >
                 {friend.isOnline ? "Online" : "Offline"}
               </p>
